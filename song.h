@@ -22,7 +22,7 @@ struct Player {
 };
 
 struct Song* createSong(char* title, char* author, int duration);
-
+struct Player* addSong(struct Player* head, struct Song* song);
 
 
 #endif

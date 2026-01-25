@@ -27,4 +27,33 @@ struct Song* createSong(char* title, char* author, int duration) {
     return song;
 }
 
+struct Player* addSong(struct Player* player, struct Song* song) {
+    if (song == NULL) {
+        printf("Could not add song.\n");
+        return NULL;
+    }
+
+    if (player == NULL) {
+        struct Player* player = malloc(sizeof(struct Player));
+
+        player->head = song;
+        player->current = NULL;
+        player->tail = song;
+        player->songCount = 1;
+        player->isPlaying = 0;
+
+        return player;
+    }
+
+    struct Song* current = song;
+    struct Song* temp = player->head;
+    current->next = player->head;
+    temp->prev = current;
+    player->head = current;
+
+    player->songCount = player->songCount++;
+
+    return player;
+}
+
 #endif
