@@ -33,7 +33,7 @@ struct Player* addSong(struct Player* player, struct Song* song) {
     if (player == NULL) {
         struct Player* player = malloc(sizeof(struct Player));
         player->head = song;
-        player->current = NULL;
+        player->current = song;
         player->tail = song;
         player->songCount = 1;
         player->isPlaying = 0;
@@ -46,6 +46,7 @@ struct Player* addSong(struct Player* player, struct Song* song) {
     current->next = player->head;
     temp->prev = current;
     player->head = current;
+    player->current = current;
     player->songCount++;
 
     return player;

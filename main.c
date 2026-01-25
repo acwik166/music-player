@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 #include "song.h"
+#include "player.h"
 
 int main() {
     struct Song* headSong = malloc(sizeof(struct Song));
@@ -33,7 +33,9 @@ int main() {
 
     printf("\n");
 
-    displaySongs(player);
+    // displaySongs(player);
+
+    startPlaying(player);
 
     return 0;
 }
