@@ -22,7 +22,8 @@ struct Player {
 };
 
 struct Song* createSong(char* title, char* author, int duration);
-struct Player* addSong(struct Player* head, struct Song* song);
+struct Player* addSong(struct Player* player, struct Song* song);
+void displaySongs(struct Player* player);
 
 
 #endif

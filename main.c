@@ -8,12 +8,6 @@ int main() {
     struct Song* headSong = malloc(sizeof(struct Song));
     struct Player* player = malloc(sizeof(struct Player));
 
-    // player->head = NULL;
-    // player->current = NULL;
-    // player->tail = NULL;
-    // player->isPlaying = 0;
-    // player->songCount = 0;
-
     headSong = createSong("I need a girl", "Diddy", 187);
 
     printf("Song created title: %s\n", headSong->title);
@@ -39,8 +33,7 @@ int main() {
 
     printf("\n");
 
-    printf("Player head title: %s\n", player->head->title);
-    printf("Player tail title: %s\n", player->tail->title);
+    displaySongs(player);
 
     return 0;
 }
