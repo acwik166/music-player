@@ -6,7 +6,7 @@
 
 // Song managament
 
-struct Song* createSong(char* title, char* author, int duration) {
+struct Song* createSong(char* title, char* author, int duration, char* path) {
     struct Song* song = malloc(sizeof(struct Song));
 
     if (song == NULL) {
@@ -17,6 +17,7 @@ struct Song* createSong(char* title, char* author, int duration) {
     song->id = 1;
     strcpy(song->title, title);
     strcpy(song->author, author);
+    strcpy(song->path, path);
     song->duration = duration;
     song->prev = NULL;
     song->next = NULL;
