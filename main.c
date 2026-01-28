@@ -8,32 +8,19 @@ int main() {
     struct Song* headSong = malloc(sizeof(struct Song));
     struct Player* player = malloc(sizeof(struct Player));
 
-    headSong = createSong("I need a girl", "Diddy", 187, "pitbull.mp3");
+    loadSongsFromDir(player);
 
-    printf("Song created title: %s\n", headSong->title);
-    printf("Song created author: %s\n", headSong->author);
-
-    printf("\n");
+    headSong = createSong("I need a girl", "Diddy", 187, "songs\\pitbull.mp3");
 
     player = addSong(NULL, headSong);
 
-    printf("Player head title: %s\n", player->head->title);
-    printf("Player tail title: %s\n", player->tail->title);
-    
-    struct Song* newSong = createSong("Wants and needs", "Drake", 175, "pitbull.mp3");
+    struct Song* newSong = createSong("Wants and needs", "Drake", 175, "songs\\pitbull.mp3");
     player = addSong(player, newSong);
-
-    printf("\n");
     
-    printf("Player head title: %s\n", player->head->title);
-    printf("Player tail title: %s\n", player->tail->title);
-    
-    struct Song* thirdSong = createSong("Drip too hard", "Gunna", 175, "pitbull.mp3");
+    struct Song* thirdSong = createSong("Drip too hard", "Gunna", 10, "songs\\pitbull.mp3");
     player = addSong(player, thirdSong);
 
-    printf("\n");
-
-    // displaySongs(player);
+    displaySongs(player);
 
     startPlaying(player);
     return 0;

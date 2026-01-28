@@ -3,6 +3,7 @@
 
 #include "song.h"
 
+void loadSongsFromDir(struct Player* player);
 void startPlaying(struct Player* player);
 void nextSong(struct Player* player);
 void prevSong(struct Player* player);
