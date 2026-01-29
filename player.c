@@ -15,12 +15,24 @@ void loadSongsFromDir(struct Player* player) {
         return;
     }
 
-    
+    ma_decoder decoder;
+
     DIR* dr;
     struct dirent *en;
     dr = opendir(".\\songs");
+    char* file_path = ".\\songs\\";
     if (dr) {
         while ((en = readdir(dr)) != NULL) {
+            // strcat(file_path, &(en->d_name));
+            ma_uint64 length;
+            if (ma_decoder_init_file(file_path, NULL, &decoder) == MA_SUCCESS) {
+
+                ma_uint64 frames = ma_decoder_get_length_in_pcm_frames(&decoder, &length);
+                float duration = (float)frames / decoder.outputSampleRate;
+                printf("duration: %.2f", duration);
+
+                ma_decoder_uninit(&decoder);
+            }
             char* filename = strtok(en->d_name, ".");
             printf("%s\n", filename);
         }
